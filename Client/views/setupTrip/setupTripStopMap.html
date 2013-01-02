@@ -1,0 +1,15 @@
+<template name="setupTripStopMap">
+	<div class="page-header">
+		<h1>{{tripName}}</h1>
+	</div>
+
+	<div class="setup-instructions">
+		<a href="/setup/info/{{currentStopNr}}" class="btn next" disabled="disabled">next</a>
+		<h2>Now mark the {{whatStop}} <small>Just click and hold or <a href="#" class="modal-opener" data-modal-id="searchAddressModal">search</a></small></h2>
+
+	</div>
+
+	{{>searchAddressModal}}
+
+	<div class="map-canvas"></div>
+</template>

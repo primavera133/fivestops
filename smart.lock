@@ -1,0 +1,46 @@
+{
+  "meteor": {
+    "git": "https://github.com/meteor/meteor.git",
+    "branch": "master",
+    "commit": "067113a37dd4e7824db1a16d5f7a90c3739eed9c"
+  },
+  "dependencies": {
+    "basePackages": {
+      "knockout": {},
+      "router": {},
+      "jquery-ui-bootstrap": {}
+    },
+    "packages": {
+      "knockout": {
+        "git": "https://github.com/bevanhunt/meteor-knockout.git",
+        "tag": "v0.3.0",
+        "commit": "47d046d3710c78e94ee3ffddc7d1d6d385b1524b"
+      },
+      "router": {
+        "git": "https://github.com/tmeasday/meteor-router.git",
+        "tag": "v0.3.4",
+        "commit": "8f0d5303de5b93771e91f21f818be27358c2fb30"
+      },
+      "jquery-ui-bootstrap": {
+        "git": "https://github.com/TimHeckel/meteor-jquery-ui-bootstrap.git",
+        "tag": "v0.1.1",
+        "commit": "52fcc79f0b0da59452e50e34dff0bfb18dca9108"
+      },
+      "page-js": {
+        "git": "https://github.com/tmeasday/meteor-page-js.git",
+        "tag": "v1.3.1",
+        "commit": "ee0b651869928abe50b5d06d7f32ccd2e657883a"
+      },
+      "bootstrap-updated": {
+        "git": "https://github.com/Charuru/bootstrap-updated.git",
+        "tag": "v1.0.1",
+        "commit": "bdd5fcc8e134e62bcbb9d11aad8270534ffb6493"
+      },
+      "jquery-ui": {
+        "git": "https://github.com/TimHeckel/meteor-jquery-ui.git",
+        "tag": "v1.8.16",
+        "commit": "abda12134b8f3c5db31d6a4864bead6aa3640358"
+      }
+    }
+  }
+}

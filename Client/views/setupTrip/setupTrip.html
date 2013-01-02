@@ -1,0 +1,71 @@
+<template name="setupTrip">
+	
+	<div class="page-header">
+		<h1>Create a trip <small>with 5 stops</small></h1>
+	</div>
+
+	<form class="setup-form" data-bind="submit: submit">
+
+		<div class="container">
+
+			<label>
+				Step 1: Name the trip <span class="icon-info-sign" data-modal-id="step1Dialog" ></span>
+			</label>
+			<input type="text" name="trip_name" placeholder="Name the trip" data-bind='value: trip_name'/>
+			
+			<div id="step1Dialog" class="modal fade hide" style="display: none;">
+	    		<div class="modal-header">        
+	        		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        		<h3>Name the trip</h3>
+	    		</div>
+	    		<div class="modal-body">
+	        		<p>Some examples:</p>
+	        		<ul>
+	        			<li>An afternoon in Cannes</li>
+	        			<li>Prenzlauer berg in five stops</li>
+	        			<li>See San Diego from a bike</li>
+	        			<li>Pub crawling in Edinburgh</li>
+	        			<li>A fleamarket tour of Paris</li>
+	        		</ul>        		
+			    </div>    
+	    		<div class="modal-footer">
+					<a class="btn" data-dismiss="modal">Close</a>
+	    		</div>
+			</div>
+		</div>
+
+
+		<div class="container">
+			<label>
+				Step 2: Describe the trip in a few words <span class="icon-info-sign" data-modal-id="step2Dialog" ></span>
+			</label>
+			<textarea name="trip_description" placeholder="This trip..." data-bind="value: trip_description" />		
+			
+			<div id="step2Dialog" class="modal fade hide" style="display: none;">
+	    		<div class="modal-header">        
+	        		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        		<h3>Describe the trip</h3>
+	    		</div>
+	    		<div class="modal-body">
+	        		<p>Something like this, perhaps?</p>
+	        		<p>
+	        			<em>
+	        			"Pushing pedal in Portland" takes you through the center of Portland on bike. We will stop at a few must-see bikeshops and cafés. All enough for a lazy summer afternoon.
+	        			</em>
+	        		</p>        		
+			    </div>    
+	    		<div class="modal-footer">
+					<a class="btn" data-dismiss="modal">Close</a>
+	    		</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<a class="btn" data-bind="click: submit ">Next step</a>
+		</div>
+
+
+	</form>
+
+
+</template>

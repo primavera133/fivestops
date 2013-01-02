@@ -1,0 +1,22 @@
+<template name="setupTripStopInfo">
+
+	<div class="page-header">
+		<h1>{{tripName}}</h1>
+	</div>
+
+	<div class="setup-instructions">
+		<a href="/setup/map/{{nextStopNr}}" class="btn next" disabled="disabled">next</a>
+		<h2>Now some info for your {{whatStop}} </h2>
+
+		<form class="setup-info">
+			<label><strong>Describe the stop upfront.</strong> This text is shown before the travellers arrive</label>
+			<textarea name="pre_description"></textarea>
+
+			<label><strong>Write some text about the stop</strong> This is shown to the travellers when they arrive</label>
+			<textarea name="description"></textarea>
+
+		</form>
+
+	</div>
+
+</template>

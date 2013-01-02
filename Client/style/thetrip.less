@@ -1,0 +1,76 @@
+* {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	padding-top: 0;
+    padding-bottom: 40px;
+}
+
+@media only screen and (min-width : 1024px) {
+	body {
+		padding-top: 60px;
+	    padding-bottom: 40px;
+	}
+}
+
+/* Fixing input sizes for Bootstrap + box-sizing */
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+	height: 28px;
+}
+
+
+.validationMessage {
+	color: #c00;
+}
+
+.setup-form .container {
+	width: 100%;
+	max-width: 30em;
+}
+
+.setup-form input[type=text] {
+	width: 100%;
+}
+
+.setup-form textarea {
+	height: 7.5em;
+	width: 100%;
+}
+
+.setup-form .container {
+	margin: 0 0 2em 0;
+}
+
+.setup-form .btn {
+	float: right;
+}
+
+
+.setup-instructions .btn {
+	float: right;
+}
+
+
+/* MAP stuff */
+.map-canvas {
+	height: 250px;
+}
+
+@media only screen and (min-width : 768px) {
+	.map-canvas {
+		height: 500px;
+	}
+}
+
+.map-canvas * {
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
+
+}
+.map-canvas img {
+	max-width: none;
+}

@@ -1,0 +1,17 @@
+<template name="tripList">
+
+	<ul class="trip-list">
+
+		{{#each getTrips }}
+			{{>trip}}
+		{{/each}}
+
+	</ul>
+
+</template>
+
+<template name="trip">
+	<li><a href="#">{{trip_name}}</a></li>
+
+</template>
+
