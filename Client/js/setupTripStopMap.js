@@ -6,15 +6,8 @@ if(Meteor.is_client){
 			if(modalId){
 				$("#" + modalId).modal();
 			}
-		},
-
-		'click .btn.next' : function (e) {
-			if(map.lastMarker) {
-				$(this).prop("disabled", false);
-			} else {
-				$(this).prop("disabled", true);
-			}
 		}
+
 
 	});
 
@@ -46,10 +39,8 @@ if(Meteor.is_client){
 		amplify.subscribe("map/lastMarker/set", function () {
 			if(map.lastMarker) {
 				$(".btn.next").removeAttr("disabled");
-			} else {
-				$(".btn.next").attr("disabled", "disabled");
+				$(".next").show();
 			}
-
 		})
 
 	}

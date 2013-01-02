@@ -4,12 +4,13 @@
 	</div>
 
 	<div class="setup-instructions">
-		<a href="/setup/info/{{currentStopNr}}" class="btn next" disabled="disabled">next</a>
+		<a href="/setup/info/{{currentStopNr}}" class="btn next" disabled="disabled">Next step</a>
+		<span class="next">Done here?</span>
 		<h2>Now mark the {{whatStop}} <small>Just click and hold or <a href="#" class="modal-opener" data-modal-id="searchAddressModal">search</a></small></h2>
-
 	</div>
+
+	<div class="map-canvas"></div>
 
 	{{>searchAddressModal}}
 
-	<div class="map-canvas"></div>
 </template>

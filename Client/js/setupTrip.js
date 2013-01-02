@@ -12,7 +12,7 @@ if(Meteor.is_client) {
 
 	Template.setupTrip.rendered = function () {
 		if(Session.get("tripName")) {
-			Meteor.Router.to('/setup/info/' + Session.get("currentStopNr"));
+			Meteor.Router.to('/setup/map/' + Session.get("currentStopNr"));
 		}
 
 		//ko.validation.rules.pattern.message = 'Invalid';
@@ -34,7 +34,7 @@ if(Meteor.is_client) {
     				Session.set("tripName", json.trip_name);
 
     		    	Meteor.call('setupTripStep1', json, function(err, data) {
-        				return Meteor.Router.to('/setup/info/1');
+        				return Meteor.Router.to('/setup/map/1');
       				});
         		} else {
 	    	        viewModel.errors.showAllMessages();

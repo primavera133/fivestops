@@ -5,18 +5,28 @@
 	</div>
 
 	<div class="setup-instructions">
-		<a href="/setup/map/{{nextStopNr}}" class="btn next" disabled="disabled">next</a>
 		<h2>Now some info for your {{whatStop}} </h2>
-
-		<form class="setup-info">
-			<label><strong>Describe the stop upfront.</strong> This text is shown before the travellers arrive</label>
-			<textarea name="pre_description"></textarea>
-
-			<label><strong>Write some text about the stop</strong> This is shown to the travellers when they arrive</label>
-			<textarea name="description"></textarea>
-
-		</form>
-
 	</div>
+
+	<form class="setup-info">
+		<div class="container">
+			<label>
+				<strong>Describe the stop upfront.</strong> This text is shown before the travellers have arrived at the stop.
+			</label>
+			<textarea name="stop_pre_description" data-bind="value: stop_pre_description"></textarea>
+		</div>
+
+		<div class="container">
+			<label>
+				<strong>Write some text about the stop</strong> This is shown to the travellers only when they have arrived
+			</label>
+			<textarea name="stop_description" data-bind="value: stop_description"></textarea>
+		</div>
+		<div class="container">
+			<a href="/setup/map/{{nextStopNr}}" class="btn" data-bind="click: submit ">Next step</a>
+		</div>
+
+	</form>
+
 
 </template>
