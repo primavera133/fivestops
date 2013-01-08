@@ -33,7 +33,9 @@ if(Meteor.is_client) {
     		    	var json = ko.toJS(this);
     				Session.set("tripName", json.trip_name);
 
-    		    	Meteor.call('setupTripStep1', json, function(err, data) {
+    		    	Meteor.call('setupTrip', json, function(err, uid) {
+    		    		Session.set("editTripId", uid);
+    		    		console.log("setting editTripId to: " + uid);
         				return Meteor.Router.to('/setup/map/1');
       				});
         		} else {

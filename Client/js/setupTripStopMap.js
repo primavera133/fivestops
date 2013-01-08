@@ -6,6 +6,21 @@ if(Meteor.is_client){
 			if(modalId){
 				$("#" + modalId).modal();
 			}
+		},
+		'click .btn.next' : function (e) {
+			e.preventDefault();
+
+		    if (Session.get("editTripId") && map.lastMarker) {
+		    	var data = {
+		    		editTripId : Session.get("editTripId"),
+		    		currentStopNr: Session.get("currentStopNr"),
+		    		lat : map.lastMarker.position.lat(),
+		    		lng : map.lastMarker.position.lng()
+		    	}
+		    	Meteor.call('setupTripStopMap', data, function(err, uid) {
+    				return Meteor.Router.to('/setup/info/' + Session.get("currentStopNr"));
+  				});
+    		}
 		}
 
 

@@ -49,11 +49,12 @@ if(Meteor.is_client){
     		stop_description: ko.observable().extend({ minLength: 20, maxLength: 500, required: true }),
     		submit: function () {
     		    if (viewModel.errors().length == 0) {
-    		    	var json = ko.toJS(this);
-    				Session.set("tripName", json.trip_name);
+    		    	var data = ko.toJS(this);
+    				data.editTripId = Session.get("editTripId");
+    				data.currentStopNr = Session.get("currentStopNr");
 
-    		    	Meteor.call('setupTripStep1', json, function(err, data) {
-        				return Meteor.Router.to('/setup/map/1');
+    		    	Meteor.call('setupTripStopInfo', data, function(err, data) {
+        				return Meteor.Router.to('/setup/map/' + (parseInt(Session.get("currentStopNr"),10) + 1));
       				});
         		} else {
 	    	        viewModel.errors.showAllMessages();
