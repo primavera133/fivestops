@@ -18,8 +18,6 @@ if (Meteor.isServer) {
 			var trip = Trips.findOne({_id: js.editTripId});
 			delete trip._id;
 
-			console.log("trip: " + trip);
-
 			if(!trip.lat){
 				trip.lat = [js.lat];
 			} else {

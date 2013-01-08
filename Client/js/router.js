@@ -15,6 +15,7 @@ if (Meteor.is_client) {
             Session.set('currentStopNr', nr);
             return 'setupTripStopInfo';
         },
+        '/setup/tag' : 'setupTripTag',
 
         '/join' : 'listTrip'
     })

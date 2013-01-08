@@ -31,8 +31,7 @@ if(Meteor.is_client){
 
 
 	Template.setupTripStopInfo.rendered = function() {
-		var tripName = Session.get("tripName");
-		if(!tripName){
+		if(!Session.get("editTripId")){
 			Meteor.Router.to("/");
 		}
 
@@ -54,7 +53,11 @@ if(Meteor.is_client){
     				data.currentStopNr = Session.get("currentStopNr");
 
     		    	Meteor.call('setupTripStopInfo', data, function(err, data) {
-        				return Meteor.Router.to('/setup/map/' + (parseInt(Session.get("currentStopNr"),10) + 1));
+    		    		if(Session.get("currentStopNr") < 5) {
+	        				return Meteor.Router.to('/setup/map/' + (parseInt(Session.get("currentStopNr"),10) + 1));
+    		    		}else{
+	        				return Meteor.Router.to('/setup/tag');
+    		    		}
       				});
         		} else {
 	    	        viewModel.errors.showAllMessages();
@@ -64,19 +67,6 @@ if(Meteor.is_client){
 
 		ko.applyBindings(viewModel);
 		viewModel.errors = ko.validation.group(viewModel);
-
-
-
-/*
-		amplify.subscribe("map/lastMarker/set", function () {
-			if(map.lastMarker) {
-				$(".btn.next").removeAttr("disabled");
-			} else {
-				$(".btn.next").attr("disabled", "disabled");
-			}
-
-		})
-*/
 
 	}
 }
