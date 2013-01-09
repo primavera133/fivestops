@@ -11,3 +11,5 @@ less
 bootstrap
 knockout
 router
+accounts-ui
+accounts-password
