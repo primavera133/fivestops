@@ -59,9 +59,12 @@
 		</div>
 		<div class="container">
 			<a href="/setup/map/{{nextStopNr}}" class="btn" data-bind="click: submit ">Next step</a>
+			<a href="/" class="btn delete">Delete trip</a>
 		</div>
 
 	</form>
+
+	{{>deleteTripModal}}
 
 
 </template>

@@ -48,6 +48,9 @@ if (Meteor.isServer) {
 				trip.stopDescription[js.currentStopNr-1] = js.stop_description;
 			}
 			return Trips.update(js.editTripId, {$set: trip});
+		},
+		'setupDeleteTrip' : function (js) {
+			Trips.remove({_id: js});
 		}
 
 	})

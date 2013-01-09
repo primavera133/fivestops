@@ -6,6 +6,11 @@ if(Meteor.is_client){
 			if(modalId){
 				$("#" + modalId).modal();
 			}
+		},
+		'click .btn.delete' : function (e) {
+			e.preventDefault();
+			$("#deleteTripModal").modal("show");
+
 		}
 
 	});

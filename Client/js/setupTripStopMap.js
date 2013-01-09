@@ -21,6 +21,11 @@ if(Meteor.is_client){
     				return Meteor.Router.to('/setup/info/' + Session.get("currentStopNr"));
   				});
     		}
+		},
+		'click .btn.delete' : function (e) {
+			e.preventDefault();
+			$("#deleteTripModal").modal("show");
+
 		}
 
 

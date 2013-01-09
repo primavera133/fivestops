@@ -11,8 +11,10 @@ if(Meteor.is_client) {
 	});
 
 	Template.setupTrip.rendered = function () {
-		if(Session.get("editTripId")) {
-		    var trip = Trips.findOne({_id: Session.get("editTripId")});
+	    var trip = Trips.findOne({_id:$.cookie("5Stops_edit_id")});
+		if(trip) {
+			Session.set("tripName", trip.tripName);
+			Session.set("editTripId", trip._id);
 		    if(!trip.lat) {
 		        Meteor.Router.to('/setup/map/1');
 		    } else if(!trip.stopDescription) {
@@ -44,7 +46,9 @@ if(Meteor.is_client) {
 
     		    	Meteor.call('setupTrip', json, function(err, uid) {
     		    		Session.set("editTripId", uid);
-    		    		console.log("setting editTripId to: " + uid);
+    					$.cookie('5Stops_edit_id', uid, {expires:7, path: '/'});
+	    				$.cookie('5Stops_edit_name', json.trip_name, {expires:7, path: '/'});
+
         				return Meteor.Router.to('/setup/map/1');
       				});
         		} else {
