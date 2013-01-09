@@ -19,9 +19,7 @@ if(Meteor.is_client) {
 		        Meteor.Router.to('/setup/info/1');
 		    } else if (trip.stopDescription.length === 5) {             
 		        Meteor.Router.to('/setup/tag');
-		    } else if (trip.lat.length === trip.stopDescription.length) {               
-		    	console.log("XXXXXXXXXXXXXXXXX " + trip.lat.length);
-		    	
+		    } else if (trip.lat.length === trip.stopDescription.length) {               		    	
 		        Meteor.Router.to('/setup/map/' + (trip.lat.length + 1));
 		    } else {
 		        Meteor.Router.to('/setup/info/' + trip.lat.length);

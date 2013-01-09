@@ -11,16 +11,51 @@
 	<form class="setup-info">
 		<div class="container">
 			<label>
-				<strong>Describe the stop upfront.</strong> This text is shown before the travellers have arrived at the stop.
+				<strong>Describe the stop before arriving.</strong> <span class="icon-info-sign" data-modal-id="stopPreDescDialog" ></span>
 			</label>
 			<textarea name="stop_pre_description" data-bind="value: stop_pre_description"></textarea>
+
+			<div id="stopPreDescDialog" class="modal fade hide" style="display: none;">
+	    		<div class="modal-header">        
+	        		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        		<h3>Describe the stop</h3>
+	    		</div>
+	    		<div class="modal-body">
+	    			<p>
+	    				Give a description about the stop, so that any followers will know what they are looking for.
+					</p>
+					<p>
+						This text is shown before the travellers have arrived at the stop.
+					</p>
+			    </div>    
+	    		<div class="modal-footer">
+					<a class="btn" data-dismiss="modal">Close</a>
+	    		</div>
+			</div>
+
 		</div>
 
 		<div class="container">
 			<label>
-				<strong>Write some text about the stop</strong> This is shown to the travellers only when they have arrived
+				<strong>Give some more info when stop has been found.</strong> <span class="icon-info-sign" data-modal-id="stopDescDialog" ></span>				
 			</label>
 			<textarea name="stop_description" data-bind="value: stop_description"></textarea>
+
+			<div id="stopDescDialog" class="modal fade hide" style="display: none;">
+	    		<div class="modal-header">        
+	        		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        		<h3>Extendend description</h3>
+	    		</div>
+	    		<div class="modal-body">
+	        		<p>
+	        			Give a fuller description about the stop, to be shown after it's been found.
+	        		</p>
+			    </div>    
+	    		<div class="modal-footer">
+					<a class="btn" data-dismiss="modal">Close</a>
+	    		</div>
+			</div>
+
 		</div>
 		<div class="container">
 			<a href="/setup/map/{{nextStopNr}}" class="btn" data-bind="click: submit ">Next step</a>

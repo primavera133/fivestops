@@ -1,7 +1,7 @@
 if(Meteor.is_client){
 
 	Template.setupTripStopInfo.events({
-		'click .modal-opener' : function (e) {
+		'click .icon-info-sign' : function (e) {
 			var modalId = $(e.target).data("modal-id");
 			if(modalId){
 				$("#" + modalId).modal();
