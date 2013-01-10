@@ -1,6 +1,6 @@
 function Map() {
 
-	var self = this, lastLatLng;
+	var self = this;
 	this.geocoder = new google.maps.Geocoder();
 	this.infoWindow = new google.maps.InfoWindow;
 	
@@ -38,16 +38,24 @@ function Map() {
 		}
 	};
 
-	this.initFromPosition = function () {
 
-	    if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(geo.success, geo.error);
-    	} else {
-      		error('not supported');
-    	}
+	this.initMap = function (position) {
+		if(position) {
+			geo.success(position);
+		} else {
+		    if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(geo.success, geo.error);
+	    	} else {
+	      		error('not supported');
+	    	}
+
+		}
+
 
 	};
 
+
+/*
 	this.setupGetCoordsFromRightClick = function () {
 
 		amplify.subscribe("map/init", function () {
@@ -65,7 +73,6 @@ function Map() {
 
 	this.setupSetPoiFromCoords = function () {
 		amplify.subscribe("map/coords", function (latLng) {
-			console.log("map/coords", arguments);
 
 			var image = "/img/beachflag.png";
 			var beachMarker = new google.maps.Marker({
@@ -76,6 +83,7 @@ function Map() {
 		})
 
 	}
+	*/
 
 	this.setupStops = function () {
 		//We need to do a little workaround for mobile touch events, using hammer.js
@@ -83,7 +91,7 @@ function Map() {
 		//1. register normal click listener with Google map API
 		//   store the lat-lng from this listener
 		google.maps.event.addListener(self.map, 'mousedown', function (e) {
-			lastLatLng = e.latLng;
+			self.lastLatLng = e.latLng;
 		});
 
 		//2. register hammer to listen for mobile hold events
@@ -95,7 +103,7 @@ function Map() {
 			if (self.lastMarker) {
 				self.lastMarker.setMap(null);
 			}
-			self.lastMarker = new google.maps.Marker({position: lastLatLng, map: self.map});
+			self.lastMarker = new google.maps.Marker({position: self.lastLatLng, map: self.map});
 
 			amplify.publish("map/lastMarker/set");
 			

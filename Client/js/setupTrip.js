@@ -11,6 +11,7 @@ if(Meteor.is_client) {
 	});
 
 	Template.setupTrip.rendered = function () {
+	    
 	    var trip = Trips.findOne({_id:$.cookie("5Stops_edit_id")});
 		if(trip) {
 			Session.set("tripName", trip.tripName);

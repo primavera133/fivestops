@@ -6,9 +6,33 @@
 
 	<div class="setup-instructions">
 		<h2>Now tag you trip so that it can be found</h2>
+		<p>
+			Please set at leasat three tags.
+		</p>
 	</div>
 	
 
-	<form class="setup-form" data-bind="submit: submit">
+	<form class="setup-tags" data-bind="submit: submit">
+
+		<div class="container">
+
+			<input type="text" id="addTag" name="tag" placeholder="add tag here" />
+			<input type="submit" class="btn" value="add" />
+
+			<h3 id="tagsHeader" class="tags-header">Tags</h3>
+			<ul id="tags" class="tags">
+
+			</ul>
+		</div>
+		<div class="container">
+
+			<a href="/setup/end" class="btn next" disabled="disabled">next</a>
+			
+		</div>
+
+		<button class="btn delete">Delete trip</button>
+
+	</form>
+	{{>deleteTripModal}}
 
 </template>

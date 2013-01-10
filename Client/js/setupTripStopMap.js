@@ -45,12 +45,23 @@ if(Meteor.is_client){
 	};
 
 	Template.setupTripStopMap.rendered = function() {
-		var tripName = Session.get("tripName");
-		if(!tripName){
+		var trip = Trips.findOne({_id: $.cookie("5Stops_edit_id")});
+		if(!trip.tripName){
 			Meteor.Router.to("/");
 		}
 
-		map.initFromPosition();
+		if(trip.lat) {
+
+			map.initMap({
+				coords: {
+					latitude: _.last(trip.lat),
+					longitude: _.last(trip.lng)
+				}
+			});
+								
+		} else {
+			map.initMap();
+		}
 		
 		amplify.subscribe("map/init", function () {			
 			map.setupStops();
